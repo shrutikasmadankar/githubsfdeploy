@@ -1,0 +1,219 @@
+/* 
+
+    Version        : 1.0
+    Company        : Accenture
+    Date           : 22.June.2016
+    Description    : Helper class for MRT Product 
+    History        : 
+                                    
+*/
+/*
+MRT Helper class
+*/
+public with sharing class MRTHelperClass {
+    
+    /*
+     //CONSTANTS
+     static final String BLANK = '';
+     static final String SFDC = 'SFDC';
+     static final String MRT = 'MRT';
+     static final String GETQUOTEDPREMIUMMATRIX = 'GetQuotedPremiumMatrix';
+     static final String BROADMARKET = 'BroadMarket';
+     static final String TRANSACTION = 'transaction';
+     static final String METADATA = 'metaData';
+     static final String TRANSACTIONTYPE = 'transactionType';
+     static final String ENTITIES = 'entities';
+     static final String USER = 'user';
+     static final String AGENTID = 'agentId';
+     static final String AGENTNAME = 'agentName';
+     static final String APPSRC = 'appSrc';
+     static final String CRMID = 'cRMID';
+     static final String CAMPAIGNCODE = 'campaignCode';
+     static final String CHANNELTYPE = 'channelType';
+     static final String INPUTFIELDS = 'inputFields';
+     static final String DATEOFBIRTH = 'dateOfBirth';
+     static final String STATE = 'state';
+     static final String FACEAMOUNT = 'faceAmount';
+     static final String GENDER = 'gender';
+     static final String PRODUCTTYPE = 'productType';
+     static final String TERMLENGTH = 'termLength';
+     static final String RISKCLASS = 'RiskClass';
+     static final String TOBACCOQUESTION = 'TobaccoQuestion';
+     static final String HEIGHT = 'height';
+     static final String WEIGHT = 'weight';
+     static final String PERSONALINFO = 'personalInfo';
+     static final String ALTERNATEPHONE = 'alternatePhone';
+     static final String CITY = 'city';
+     static final String EMAIL = 'email';
+     static final String FIRSTNAME = 'firstName';
+     static final String LASTNAME = 'lastName';
+     static final String MIDDLENAME = 'middleName';
+     static final String PRIMARYPHONE = 'primaryPhone';
+     static final String STATEDESC = 'stateDesc';
+     static final String STREET = 'street';
+     static final String ZIP = 'zip';
+     static final String SUBMITTEDDATETIME = 'submittedDateTime';
+     static final String RESPBODY1 = '{"statuscode":"0","statusmsg":"Successful","producttype":"MRT","basefaceamount":"100000","basepremium":"14.5","MatrixFaceamount":"[80000, 90000, 100000, 150000, 200000]","array80000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"80000"}],"array90000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"90000"}],"array100000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"100000"}],"array125000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"150000"}],"array150000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"200000"}]}';
+     static final String RESPBODY2 = '{"MRTGetQuotedPremiumMatrixResp":'+respBody+'}';
+     static final String RESPBODY3 = '{"statuscode":"0","statusmsg":"Successful","producttype":"MRT","basefaceamount":"100000","basepremium":"14.5","MatrixFaceamount":"[80000, 90000, 100000, 150000, 200000]","array80000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"80000"}],"array90000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"90000"}],"array100000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"100000"}],"array125000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"150000"}],"array150000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"200000"}]}';
+     static final String RESPBODY4 = '{"MRTGetQuotedPremiumMatrixResp":'+respBody+'}';
+    */
+    public Static String responseMessage;
+/*
+getPremiumQuoteMRT Method for JSON RESP
+*/
+    public Static JSONRespMRT getPremiumQuoteMRT(String campaignCode,String dateOfBirth,String state,String faceAmount,String gender,String termLength,String RiskClass,String TobaccoQuestion,String height,String weight,String alternatePhone,String city,String email,String firstName,String lastName,String middleName,String primaryPhone,String street,String zip){
+    
+    JSONRespMRT respObj=null;
+         
+        String requestContentStr=MRTRequestJson(campaignCode,dateOfBirth,state,faceAmount,gender,termLength,RiskClass,TobaccoQuestion,height,weight,alternatePhone,city,email,firstName,lastName,middleName,primaryPhone,street,zip);
+        System.debug('requestContentStr'+requestContentStr);
+        
+        //Sends the webservice request
+        try{
+        
+        String respBody = '';
+        
+        if(test.IsRunningTest() == false) {
+            
+            respBody = '{"statuscode":"0","statusmsg":"Successful","producttype":"MRT","basefaceamount":"100000","basepremium":"14.5","MatrixFaceamount":"[80000, 90000, 100000, 150000, 200000]","array80000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"80000"}],"array90000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"90000"}],"array100000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"100000"}],"array125000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"150000"}],"array150000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"200000"}]}';
+            respBody = '{"MRTGetQuotedPremiumMatrixResp":'+respBody+'}';
+            
+            System.debug('*****RESPONSE HCE' + respBody);
+        }else{
+            respBody = '{"statuscode":"0","statusmsg":"Successful","producttype":"MRT","basefaceamount":"100000","basepremium":"14.5","MatrixFaceamount":"[80000, 90000, 100000, 150000, 200000]","array80000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"80000"}],"array90000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"90000"}],"array100000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"100000"}],"array125000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"150000"}],"array150000":[{"termLength":"10","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"15","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"20","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"25","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"termLength":"30","annualpremium":"14.5","semiannual":8.3,"quarterlypremium":5.1,"monthlypremium":"2.1"},{"amount":"200000"}]}';
+            respBody = '{"MRTGetQuotedPremiumMatrixResp":'+respBody+'}';
+            
+            System.debug('*****RESPONSE HCE' + respBody);
+        }
+        respObj=JSONRespMRT.parse(respBody);
+        }
+        catch(Exception e){
+            responseMessage = e.getMessage();
+        }                
+        return respObj;          
+ }
+  /*
+Checking parameter as null
+*/
+  private Static String checkNull(String param){
+   try{
+    String cNull;    
+    if(param == null){            
+      cNull = '';
+    }
+    else{
+      cNull = param;
+    }    
+    return cNull;
+    }catch(exception e){
+     System.debug('Exception Occured'+ e);
+     return null;
+    }
+  }  
+   
+   /*JSON request for MRT 
+   Product
+   */
+   private Static String MRTRequestJson(String campaignCode,String dateOfBirth,String state,String faceAmount,String gender,String termLength,String RiskClass,String TobaccoQuestion,String height,String weight,String alternatePhone,String city,String email,String firstName,String lastName,String middleName,String primaryPhone,String street,String zip){
+        
+        String outJsonStr='';
+        
+        String agentId=''; 
+        String agentName='';
+        String appSrc='SFDC';
+        String crmId=''+Math.random();
+        String productType='MRT';
+        String transactionType='GetQuotedPremiumMatrix';
+        String channelType='BroadMarket';
+        String stateDesc='';
+        
+        String subDateTime = String.Valueof(DateTime.now()); 
+        
+        campaignCode = checkNull(campaignCode);
+        channelType = checkNull(channelType);
+        dateOfBirth = checkNull(dateOfBirth);
+        state = checkNull(state);
+        String faceAmt = checkNull(faceAmount);
+        gender = checkNull(gender);
+        String temLength = checkNull(termLength);
+        RiskClass = checkNull(RiskClass);
+        TobaccoQuestion = checkNull(TobaccoQuestion);
+        String ht = checkNull(height);
+        String wt = checkNull(weight);
+        alternatePhone = checkNull(alternatePhone);
+        city = checkNull(city);
+        email = checkNull(email);
+        firstName = checkNull(firstName);
+        lastName = checkNull(lastName);
+        middleName = checkNull(middleName);
+        primaryPhone = checkNull(primaryPhone);
+        street = checkNull(street);
+        zip = checkNull(String.valueof(zip));
+        
+                
+        try{    
+            JSONGenerator generator = JSON.createGenerator(true);
+            generator.writeStartObject();/*Main Start*/              
+                generator.writeFieldName('transaction');
+                generator.writeStartObject();/*Transaction Start*/ 
+                    generator.writeFieldName('metaData');
+                    generator.writeStartObject();/*MetaData Start*/
+                    generator.writeEndObject(); /*MetaData End*/                        
+                    generator.writeStringField('transactionType',transactionType);
+                    generator.writeFieldName('entities');
+                    generator.writeStartObject();   /*Entities Start*/
+                        generator.writeFieldName('user');
+                        generator.writeStartObject(); /*User Start*/
+                            generator.writeStringField('agentId',agentId);
+                            generator.writeStringField('agentName',agentName);
+                            generator.writeStringField('appSrc','SFDC');
+                            generator.writeStringField('cRMID',crmId);
+                            generator.writeStringField('campaignCode','');
+                            generator.writeStringField('channelType',channelType);
+                            
+                            
+                            generator.writeFieldName('inputFields');
+                            generator.writeStartObject();/*inputFields Start*/ 
+                                generator.writeStringField('dateOfBirth' ,dateOfBirth);
+                                generator.writeStringField('state',state);
+                                generator.writeStringField('faceAmount',faceAmt);
+                                generator.writeStringField('gender',gender);
+                                generator.writeStringField('productType',productType);
+                                generator.writeStringField('termLength',temLength); 
+                                generator.writeStringField('RiskClass',RiskClass);
+                                generator.writeStringField('TobaccoQuestion',TobaccoQuestion);
+                                generator.writeStringField('height',ht); 
+                                generator.writeStringField('weight',wt);
+                            generator.writeEndObject();/*inputFields End*/
+                            
+                            generator.writeFieldName('personalInfo');
+                            generator.writeStartObject(); /*personalInfo Start*/ 
+                                generator.writeStringField('alternatePhone',alternatePhone);
+                                generator.writeStringField('city',city);
+                                generator.writeStringField('email',email);
+                                generator.writeStringField('firstName',firstName);
+                                generator.writeStringField('lastName',lastName);
+                                generator.writeStringField('middleName',middleName);
+                                generator.writeStringField('primaryPhone',primaryPhone);
+                                generator.writeStringField('stateDesc',stateDesc);
+                                generator.writeStringField('street',street);
+                                generator.writeStringField('zip',zip);
+                            generator.writeEndObject();/*personalInfo End*/
+                            generator.writeStringField('submittedDateTime',subDateTime);
+                        generator.writeEndObject();/*User End*/
+                    generator.writeEndObject();/*Entities End*/
+                generator.writeEndObject();/*Transaction End*/
+            generator.writeEndObject();/*Main End*/
+            outJsonStr = generator.getAsString(); 
+        }catch(Exception ex){
+            System.debug('Exception type caught: ' + ex.getTypeName());   
+            System.debug('Message: ' + ex.getMessage());   
+            System.debug('Cause: ' + ex.getCause());    // returns null
+            System.debug('Line number: ' + ex.getLineNumber());   
+            System.debug('Stack trace: ' + ex.getStackTraceString());
+        }
+        return outJsonStr;   
+   }
+   
+ }
